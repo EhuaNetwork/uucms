@@ -1,0 +1,8 @@
+    public function FUNCTION()
+    {
+        $UUCMS = $this->uucms->index($this, __FUNCTION__, __CLASS__);
+
+        $this->assign('thiss', $UUCMS['this_mod']);
+        $this->assign('data', $UUCMS['data']);
+        return $this->staticFetch($this->staticStatus);
+    }
