@@ -1,0 +1,114 @@
+<title>{$system.web_title}</title>
+<meta name="keywords" content="{$system.web_keywords}">
+<meta name="description" content="{$system.web_description}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--引入插件配置-->
+{php}
+//jquery
+$jq=false;
+
+//wow
+$wow=false;
+
+//sw轮播图
+$sw=false;
+{/php}
+<!--自定义分页配置-->
+{php}
+//分页样式
+$paging=false;
+
+//底部拨号按钮
+$button_tel=false
+
+{/php}
+
+
+<!--jquery-->
+{if $jq}
+<script src="__UUCMS__/uucms/plug/jquery/2.0.0.js"></script>
+{/if}
+
+<!--wow特效-->
+{if $wow}
+<script src="__UUCMS__/uucms/plug/wow/wow.js"></script>
+<link href="__UUCMS__/uucms/plug/wow/animate.css" rel="stylesheet">
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        offset: 0,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+
+{/if}
+
+<!--sw轮播图-->
+{if $sw}
+<script src="__UUCMS__/uucms/plug/swiper/swiper-bundle.min.js"></script>
+<link href="__UUCMS__/uucms/plug/swiper/swiper-bundle.min.css" rel="stylesheet">
+{/if}
+
+<!--分页样式-->
+{if $paging}
+<style>
+    /*tp分页样式*/
+    .pagination {
+    }
+
+    .pagination li {
+        display: inline-block;
+        margin-right: 10px;
+
+        border: 1px solid #e2e2e2;
+        min-width: 20px;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+
+    }
+
+    .pagination li.active {
+        background: rgb(51, 106, 166);;
+        color: #fff;
+        border: 1px solid rgb(51, 106, 166);
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+
+    }
+
+    .pagination li a {
+        display: block;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+
+    . line-height: 30 px;
+    }
+</style>
+{/if}
+
+<!--底部拨号按钮-->
+{if $button_tel}
+<a href="tel:{$system.link_tel}">
+    <div class="wapp  "
+         style="position: fixed;bottom: 50px;right: 30px;height: 50px;width: 50px;z-index: 99999999;background-color: #fff;border-radius: 100%;text-align: center">
+        <svg style="    height: 50px;
+    width: 50px;" t="1629507478740" class="icon" viewBox="0 0 1024 1024" version="1.1"
+             xmlns="http://www.w3.org/2000/svg" p-id="2713" width="200" height="200">
+            <path d="M508.778 26.228c-269.053 0-487.942 218.891-487.942 487.942s218.891 487.942 487.942 487.942 487.942-218.877 487.942-487.93-218.891-487.956-487.942-487.956zM687.241 769.57c-172.769 0-429.534-274.05-429.534-417.997 0-57.549 49.616-96.489 91.027-96.489 43.787 0 118.415 126.279 118.415 152.986 0 18.814-8.124 32.126-14.637 42.831-5.066 8.301-8.055 13.489-8.383 19.47 6.718 21.012 85.333 99.396 107.534 107.287 5.899-0.518 13.366-4.41 21.259-8.519 12.37-6.445 27.771-14.473 46.586-14.473 30.078 0 158.748 83.927 158.748 118.429 0.014 65.604-37.37 96.475-91.013 96.475z"
+                  p-id="2714" fill="#1296db"></path>
+        </svg>
+    </div>
+</a>
+{/if}
+
+
+

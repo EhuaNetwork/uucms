@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{$system.company}</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="__UUCMS__/uucms/server/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__UUCMS__/uucms/server/layuiadmin/style/admin.css" media="all">
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+
+                <form action="{:url('edit')}" method="post">
+                    <input type="hidden" name="img" value="0" class="layui-input" id="img">
+                    <div class="layui-form" wid100 lay-filter="">
+                        <div class="layui-tab layui-tab-card" style="width: 100%;">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this">基本内容</li>
+                                <li>其他内容</li>
+                            </ul>
+                            <div class="layui-tab-content" style="">
+
+
+                                <div class="layui-tab-item layui-show">
+
+
+                                    <input type="hidden" name="i" value="{$i}" class="layui-input" id="img">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">设置分类</label>
+                                        <div class="layui-input-block">
+                                            <select name="upid" id="t">
+                                                <option value="0">顶级分类</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">栏目名称</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="name" value="{$data.name}" class="layui-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">MCA</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="m" value="{$data.m}" class="layui-input"
+                                                   style="width: 30%;float: left">
+                                            <input type="text" name="c" value="{$data.c}" class="layui-input"
+                                                   style="width: 30%;float: left">
+                                            <input type="text" name="a" value="{$data.a}" class="layui-input"
+                                                   style="width: 30%;float: left">
+                                            <i style="clear: both"></i>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">展示类型</label>
+                                        <div class="layui-input-block">
+
+                                            {if $data.type=='2'}
+                                            <input type="radio" name="type" value="2" title="列表页" checked>
+                                            {else}
+                                            <input type="radio" name="type" value="2" title="列表页">
+                                            {/if}
+
+
+                                            {if $data.type=='1'}
+                                            <input type="radio" name="type" value="1" title="单页" checked>
+                                            {else}
+                                            <input type="radio" name="type" value="1" title="单页">
+                                            {/if}
+
+
+                                        </div>
+                                    </div>
+                                    <div id="div1"></div>
+                                    <textarea id="LAY_demo1"   name="body" style="width: 100%">{$data['body']}</textarea>
+                                </div>
+                                <div class="layui-tab-item">
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">自定义URL</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="nourl" value="{$data.nourl}" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">T</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="t" value="{$data.t}" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">D</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="d" value="{$data.d}" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">K</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="k" value="{$data.k}" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <label class="layui-form-label">置顶值</label>
+                                        <div class="layui-input-block">
+                                            <input type="text" name="top" value="{$data.top}" class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item" style="margin-top: 20px">
+                                    <div class="layui-input-block">
+                                        <button class="layui-btn" type="submit" lay-filter="set_website">生成栏目配置</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="__UUCMS__/ecms/plug/jquery/2.0.0.js"></script>
+
+<!--3.1.1版本-->
+<style>
+    #alt {
+        float: left;
+        background: #fff;
+        border-radius: 5px;
+        border: 1px solid #9b9b9b;
+        height: 30px;
+        width: 80%;
+        padding-left: 5px;
+        margin-left: 10px;
+    }
+</style>
+
+{include file='common/edit_js'}
+
+<script src="__UUCMS__/uucms/server/layuiadmin/layui/layui.js"></script>
+<script>
+    layui.config({
+        base: "__UUCMS__/uucms/server/layuiadmin/" //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'set'], function () {
+        var table = layui.table;
+        var $ = layui.jquery;
+        form = layui.form;
+        try {
+            setSelect()
+
+            function setSelect() {
+                var select = $("#t");//TypeID为HTML标签ID
+                '{foreach $type2 as $t1}'
+                name = topString('{$t1.level}') + '{$t1.name}';
+                bool = '{if $t1.id==$tt}selected {/if}';
+                // select.append(new Option(name,'{$t1.id}',bool));// 下拉菜单里添加元素
+
+                str = "<option value=\"{$t1.id}\" " + bool + " >" + name + "</option>";
+                select.append(str)
+                '{/foreach}'
+                layui.form.render("select");
+
+                function topString(level) {
+                    var str = '';
+                    for (var i = 0; i < level; i++) {
+                        str += '|----';
+                    }
+                    return str;
+                }
+            }
+        } catch (err) {
+        }
+    });
+</script>
+</body>
+</html>

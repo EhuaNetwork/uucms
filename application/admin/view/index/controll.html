@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>主页一</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="__UUCMS__/uucms/server/layuimini/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="__UUCMS__/uucms/server/layuimini/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="__UUCMS__/uucms/server/layuimini/css/public.css" media="all">
+</head>
+<style>
+    .layui-top-box {
+        padding: 40px 20px 20px 20px;
+        color: #fff
+    }
+
+    .panel {
+        margin-bottom: 17px;
+        background-color: #fff;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+    }
+
+    .panel-body {
+        padding: 15px
+    }
+
+    .panel-title {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 14px;
+        color: inherit
+    }
+
+    .label {
+        display: inline;
+        padding: .2em .6em .3em;
+        font-size: 75%;
+        font-weight: 700;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+        margin-top: .3em;
+    }
+
+    .layui-red {
+        color: red
+    }
+
+    .main_btn > p {
+        height: 40px;
+    }
+</style>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main layui-top-box">
+        <div class="layui-row layui-col-space10">
+
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-cyan">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-blue">累计</span>
+                                <h5>文章统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">{$count.article}</h1>
+                                <small>当前分类总记录数</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-blue">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-cyan">累计</span>
+                                <h5>浏览统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">0</h1>
+                                <small>当前分类总记录数</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-green">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-orange">累计</span>
+                                <h5>用户统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">0</h1>
+                                <small>当前分类总记录数</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-orange">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-green">累计</span>
+                                <h5>留言统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">0</h1>
+                                <small>当前分类总记录数</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-box">
+        <div class="layui-row layui-col-space10">
+            <div class="layui-col-md12">
+                <blockquote class="layui-elem-quote main_btn" style="">
+                    <div style="display: none">
+                        <p>本模板基于layui2.5.4以及font-awesome-4.7.0进行实现。layui开发文档地址：<a
+                                class="layui-btn layui-btn-xs layui-btn-danger" target="_blank"
+                                href="http://www.layui.com/doc">layui文档</a></p>
+                        <p>技术交流QQ群（561838086）：<a target="_blank" href="https://jq.qq.com/?_wv=1027&k=5JRGVfe"><img
+                                border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="layuimini"
+                                title="layuimini"></a>（加群请备注来源：如gitee、github、官网等）</p>
+                        <p>喜欢此后台模板的可以给我的GitHub和Gitee加个Star支持一下</p>
+                        <p>GitHub地址：
+                            <iframe src="https://ghbtns.com/github-btn.html?user=zhongshaofa&repo=layuimini&type=star&count=true"
+                                    frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                            <iframe src="https://ghbtns.com/github-btn.html?user=zhongshaofa&repo=layuimini&type=fork&count=true"
+                                    frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                        </p>
+                        <p>Gitee地址：<a href="https://gitee.com/zhongshaofa/layuimini" target="_blank"><img
+                                src="https://gitee.com/zhongshaofa/layuimini/badge/star.svg?theme=dark" alt="star"></a>
+                            <a
+                                    href="https://gitee.com/zhongshaofa/layuimini" target="_blank"><img
+                                    src="https://gitee.com/zhongshaofa/layuimini/badge/fork.svg?theme=dark" alt="fork"></a>
+                        </p>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-box">
+        <div class="layui-row layui-col-space10">
+            <div class="layui-col-md6">
+                <div class="layui-card-header"><i class="fa fa-fire icon"></i>最近留言</div>
+
+                <table class="layui-table">
+                    <colgroup>
+                        <col width="150">
+                        <col width="200">
+                        <col>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>留言名称</th>
+                        <th>留言时间</th>
+                        <th>留言内容</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {if empty($echos)}
+                    <tr>
+                        <td colspan="3" style="">暂无内容...</td>
+                    </tr>
+                    {/if}
+                    {foreach $echos as $dta}
+                    <tr>
+                        <td>{$dta.name}</td>
+                        <td>{$dta.body}</td>
+                        <td>{$dta.create_time}</td>
+                    </tr>
+                    {/foreach}
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="layui-col-md6">
+                <div class="layui-card">
+                    <div class="layui-card-header"><i class="fa fa-fire icon"></i>版本信息</div>
+                    <div class="layui-card-body layui-text">
+                        <table class="layui-table">
+                            <colgroup>
+                                <col width="100">
+                                <col>
+                            </colgroup>
+                            <tbody>
+
+                            {php}
+                            $temp=file_get_contents('version');
+                            $kj_name=explode(' for ',$temp)[0];
+                            $kj_lv=explode(' for ',$temp)[1];
+                            {/php}
+                            <tr>
+                                <td>框架名称</td>
+                                <td>
+                                    {$kj_name}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>当前版本</td>
+                                <td>{$kj_lv} <a data-href="{:url($admPath.'/update/init')}" class="update">更新</a></td>
+                            </tr>
+                            <tr>
+                                <td>主要特色</td>
+                                <td>UUCMS是基于TP框架为核心开发的企业内容管理系统、专注企业建站用户需求、降低中小企业网站建设、网络营销成本、致力于打造用户舒适的建站体验!
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>版本更新</td>
+                                <td>
+                                    怀旧版-v3.1：<a
+                                        href="https://github.com/EhuaNetwork/uucms/tree/3.1%E6%80%80%E6%97%A7%E7%89%88"
+                                        target="_blank">github</a>
+                                    &nbsp;
+                                    &nbsp;
+                                    &nbsp;
+                                    最新版-dev：<a href="https://github.com/EhuaNetwork/uucms/tree/master" target="_blank">github</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Github</td>
+                                <td style="padding-bottom: 0;">
+                                    <div class="layui-btn-container">
+                                        <iframe src="https://ghbtns.com/github-btn.html?user=EhuaNetwork&amp;repo=uucms&amp;type=star&amp;count=true"
+                                                frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                                        <iframe src="https://ghbtns.com/github-btn.html?user=EhuaNetwork&amp;repo=uucms&amp;type=fork&amp;count=true"
+                                                frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__UUCMS__/uucms/server/layuimini/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+
+<script>
+    layui.config({
+        base: "__UUCMS__/uucms/server/layuiadmin/" //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'table', 'layer', 'form'], function () {
+        var table = layui.table;
+        $ = layui.jquery;
+
+
+        $('.update').click(function () {
+            href = $(this).attr('data-href');
+            layer.open({
+                title: '标题',
+                type: 2,
+                btnAlign: 'c',
+                area: ['80%', '80%'],
+                content: href,
+                success: function (layero, index) {
+                    // let body = layer.getChildFrame('body', index);
+                    // body.find("#name").val(jsonObj.name);   //通过class名进行获取数据
+                    // body.find("#id").val(0);
+                    // body.find("#parentid").val(jsonObj.id);
+                    // layui.tree.render();
+                },
+            });
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+    "name": "ehua/uucms",
+    "description": "UU建站系统",
+    "type": "project",
+    "keywords": [
+        "uucms"
+    ],
+    "homepage": "http://uucms.ehuanetwork.com/",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "ehua",
+            "email": "ehua999@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "topthink/framework": "5.0.*",
+        "ehua/tool": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "application"
+        }
+    },
+    "extra": {
+        "think-path": "thinkphp"
+    },
+    "config": {
+      "preferred-install": "dist",
+      "allow-plugins": {
+        "topthink/think-installer": true
+      }
+    }
+}

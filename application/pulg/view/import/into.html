@@ -1,0 +1,149 @@
+{include file='common/head'}
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+
+                <a href='/test.zip' id="zip"></a>
+                <form action="{:url('create')}" method="post">
+                    <input type="hidden" name="img" value="0" class="layui-input" id="img">
+
+                    <div class="layui-form" wid100 lay-filter="">
+
+                        <div class="layui-tab layui-tab-card" style="width: 100%;">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this">下载结构包</li>
+                                <li>导入结构包</li>
+                            </ul>
+                            <div class="layui-tab-content" style="">
+                                <div class="layui-tab-item layui-show">
+                                    <div class="layui-form layui-card-header layuiadmin-card-header-auto">
+                                        <div class="layui-form-item">
+
+                                            <div class="layui-inline">
+                                                <label class="layui-form-label">文章标签</label>
+                                                <div class="layui-input-inline">
+                                                    <select name="t" class="ttt">
+                                                        <option value="">请选择标签</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="layui-inline" id="search">
+                                                <a data-href="{:url('/pulg/import/init')}" class="layui-btn init">
+                                                    下载
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="layui-tab-item">
+                                    <div class="layui-inline">
+
+                                        <div class="layui-upload-drag" id="test10"
+                                             data-href="{:url('/pulg/import/insert')}">
+                                            <i class="layui-icon"></i>
+                                            <p>点击上传，或将文件拖拽到此处</p>
+                                            <div class="layui-hide" id="uploadDemoView">
+                                                <hr>
+                                                <!--                    <img src="" alt="上传成功后渲染" style="max-width: 196px">-->
+                                                <p>上传成功</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="httpS://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="__UUCMS__/uucms/server/layuiadmin/layui/layui.js"></script>
+<script>
+    layui.config({
+        base: '__UUCMS__/uucms/server/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'set', 'layedit'], function () {
+        var table = layui.table;
+        layedit = layui.layedit;
+        $ = layui.jquery;
+        upload = layui.upload;
+
+        $('.init').click(function () {
+            id = $('.ttt option:selected').val()
+            url = $(this).attr('data-href');
+            $.post(url, {'i': id}, function (res) {
+                if (res.code == 1) {
+                    document.getElementById("zip").click();
+                } else {
+                    alert('网络异常')
+                }
+            })
+        })
+
+
+        //拖拽上传
+        upload.render({
+            elem: '#test10'
+            , exts: 'zip|rar|7z' //只允许上传压缩文件
+            , url: "{:url('/pulg/import/insert')}" //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
+            , done: function (res) {
+                layer.msg('上传成功');
+                layui.$('#uploadDemoView').removeClass('layui-hide');
+                // layui.$('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', res.files.file);
+                console.log(res)
+            }
+        });
+
+
+        setSelect();
+
+        function setSelect() {
+            var $ = layui.jquery;
+
+            var select = $(".ttt");//TypeID为HTML标签ID
+            '{foreach $type2 as $t1}'
+            name = topString('{$t1.level}') + '{$t1.name}';
+            bool = '{if $t1.id==$tt}selected {/if}';
+            // select.append(new Option(name,'{$t1.id}',bool));// 下拉菜单里添加元素
+            str = "<option value=\"{$t1.id}\" " + bool + " >" + name + "</option>";
+            select.append(str)
+            '{/foreach}'
+            layui.form.render("select");
+
+            function topString(level) {
+                var str = '';
+                for (var i = 0; i < level; i++) {
+                    str += '|----';
+                }
+                return str;
+            }
+        }
+
+    });
+</script>
+
+</div>
+<!--3.1.1版本-->
+<style>
+    #alt {
+        float: left;
+        background: #fff;
+        border-radius: 5px;
+        border: 1px solid #9b9b9b;
+        height: 30px;
+        width: 80%;
+        padding-left: 5px;
+        margin-left: 10px;
+    }
+</style>
+
+</body>
+</html>
+
+
+

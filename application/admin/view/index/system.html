@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{$system.company}</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="__UUCMS__/uucms/server/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__UUCMS__/uucms/server/layuiadmin/style/admin.css" media="all">
+</head>
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <form action="{:url('system')}" method="post">
+
+                <div class="layui-form" wid100 lay-filter="">
+                    <div class="layui-tab layui-tab-card" style="width: 100%;">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">基本设置</li>
+                            <li>其他设置</li>
+                        </ul>
+                        <div class="layui-tab-content" style="">
+
+
+                            <div class="layui-tab-item layui-show">
+
+
+                                {foreach $sys as $dat}
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">{$dat.as}</label>
+                                    <div class="layui-input-block">
+                                        {php}
+                                        $option=json_decode($dat['option'],true);
+                                        {/php}
+                                        {foreach $option as $da}
+
+                                        {if $dat.value==$da['value']}
+                                        <input type="radio" name="{$dat['key']}" value="{$da['value']}"
+                                               title="{$da['name']}" checked="">
+                                        {else}
+                                        <input type="radio" name="{$dat['key']}" value="{$da['value']}"
+                                               title="{$da['name']}">
+                                        {/if}
+
+                                        {/foreach}
+                                    </div>
+                                </div>
+                                {/foreach}
+
+                            </div>
+                            <div class="layui-tab-item ">
+
+
+                            </div>
+                            <div class="layui-form-item" style="margin-top: 20px">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" type="submit" lay-filter="set_website">确认保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="__UUCMS__/uucms/server/layuiadmin/layui/layui.js"></script>
+<script>
+    layui.config({
+        base: "__UUCMS__/uucms/server/layuiadmin/" //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'set'], function () {
+        $ = layui.jquery
+
+
+        $('.del').click(function () {
+            var msg = "您真的确定要删除吗？\n\n请确认！";
+            if (confirm(msg) == true) {
+                var href = $(this).attr('data-href')
+                window.location.href = href
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+
+        $('.addparam').on('click', function () {
+            layer.open({
+                title: '添加变量',
+                type: 2,
+                btnAlign: 'c',
+                area: ['500px', '520px'],
+                content: "addparam",
+                success: function (layero, index) {
+                    // let body = layer.getChildFrame('body', index);
+                    // body.find("#name").val(jsonObj.name);   //通过class名进行获取数据
+                    // alert(jsonObj.id);
+                    // body.find("#id").val(0);
+                    // body.find("#parentid").val(jsonObj.id);
+                    // layui.tree.render();
+                },
+            });
+        })
+    });
+</script>
+</body>
+</html>
