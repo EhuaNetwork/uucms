@@ -2,9 +2,9 @@
 return
     array(
         'hostname' => '127.0.0.1',
-        'database' => 'uucms_ehua_pro',
-        'username' => 'uucms_ehua_pro',
-        'password' => 'uucms_ehua_pro',
+        'database' => 'uucms_dev',
+        'username' => 'uucms_dev',
+        'password' => 'uucms_dev',
         'hostport' => '3306',
         'prefix' => 'uu_',
     );
